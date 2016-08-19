@@ -1,0 +1,66 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title></title>
+	<link rel="stylesheet" href='/static/css/common.css' />
+	<script type="text/javascript" src="/static/js/jquery-2.1.1.js"></script>
+	{% block css %} {% endblock%}
+</head>
+<body>
+<!-- 顶部导航 -->
+	<div class='pg-title'>
+		<ul>
+			<li ><a style="color:red;text-align:center;cursor:pointer;float:left;">监控系统</a></li>
+		</ul>
+	</div>
+<!--  -->
+	<div class='pg-body'>
+	<!-- 左侧按钮 -->
+		<div class='body-menu'>
+			<div>
+				<div class="menu-title">监控信息</div>
+				<div class="menu-body">
+					<a href="http://127.0.0.1:8000/web/map/">全国总览</a>
+					<a href="http://127.0.0.1:8000/web/monitor_detail/">详细信息</a>
+					<a href="http://127.0.0.1:8000/web/echarts/">运行报表</a>
+				</div>
+			</div>
+
+			<div>
+				<div class="menu-title">用户信息</div>
+				<div class="menu-body hide">
+					<a href="">content1</a>
+					<a href="">content2</a>
+					<a href="">content3</a>
+				</div>
+			</div>
+
+			<div>
+				<div class="menu-title">Menu1</div>
+				<div class="menu-body hide">
+					<a href="">content1</a>
+					<a href="">content2</a>
+					<a href="">content3</a>
+				</div>
+			</div>
+
+		</div>
+		<!-- 右侧内容 -->
+		<div class='body-content'>
+			{% block content %} {% endblock%}
+		</div>
+	</div>
+	
+	<div></div>
+<!-- 	<script type="text/javascript" src='/static/js/jquery-1.8.2.js'></script> -->
+	{% block javascript %} {% endblock%}
+	<script type="text/javascript">
+		$(function(){
+			$('.menu-title').click(function(){
+				$(this).parent().siblings().children('.menu-body').addClass('hide');
+				$(this).next().removeClass('hide');
+			});
+		});
+	</script>
+</body>
+</html>

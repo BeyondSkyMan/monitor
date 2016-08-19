@@ -1,0 +1,58 @@
+{% extends 'Layout/Master.html' %}
+
+{% block css %}
+		<script type="text/javascript" src="/static/js/jquery-2.1.1.js"></script>
+		<style type="text/css">
+			${demo.css}
+		</style>
+		<script type="text/javascript">
+$(function () {
+     Highcharts.setOptions({
+        global: {
+            useUTC: false,
+        }
+    });
+    $.getJSON('graph_data/', function (data) {
+    
+
+
+        $('#container').highcharts('StockChart', {
+
+            //chart: {
+            //    type: 'arearange'
+            //},
+
+            rangeSelector: {
+                inputEnabled: $('#container').width() > 480,
+                selected: 2
+            },
+
+            title: {
+                text: 'CPU 使用率'
+            },
+
+            tooltip: {
+                valueSuffix: '%'
+            },
+
+            series: [{
+                name: 'usage',
+                data: data
+            }]
+
+        });
+    });
+
+});
+		</script>
+
+
+
+<script src="/static/highstock/js/highstock.js"></script>
+<script src="/static/highstock/js/highcharts-more.js"></script>
+<script src="/static/highstock/js/modules/exporting.js"></script>
+{% endblock%}
+
+{% block content %} 
+<div id="container" style="min-width: 310px; height: 300px; "></div>
+{% endblock%}

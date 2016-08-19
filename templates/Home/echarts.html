@@ -1,0 +1,85 @@
+{% extends  'Layout/Master.html'%}
+{% block css %} 
+	<script type="text/javascript" src="/static/js/echarts.js"></script>
+{% endblock%}
+{% block content %} 
+<body style="min-width:500px;height:100%;margin:10px;">
+<div id="main_right" style="width:500px;height:400px;float:right;"></div>
+<div id="main_left" style="width:500px;height:400px;float:left;"></div>
+<script type="text/javascript">
+	var myChart = echarts.init(document.getElementById('main_right'));
+
+/*	var option = {
+		title: {
+			text:'Echarts 练习',
+			subtext:'sadasd',
+		},
+		tooltip: {},
+		legend: {
+			data: ['访问量']
+		},	
+		xAxis: {
+			data : ["谷歌","百度","新浪","腾讯","淘宝"]
+		},
+		yAxis: {},
+		series:[{
+			name: '访问量',
+			type: 'bar',
+			data: [5000.00,6000.0,7000.00,8000.0,9000.0]
+		}]
+
+};
+
+myChart.setOption(option);*/
+myChart.setOption({
+	series : [
+		{
+			name: '访问来源',
+			type:'pie',
+			radius: '55%',
+			data:[
+				{value:400, name:'搜索引擎'},
+                {value:335, name:'直接访问'},
+                {value:310, name:'邮件营销'},
+                {value:274, name:'联盟广告'},
+                {value:235, name:'视频广告'}
+			]
+		}
+	]
+});
+</script>
+<script type="text/javascript">
+	var myChart = echarts.init(document.getElementById('main_left'));
+
+	var option = {
+		title: {
+			text:'Echarts 练习'
+		},
+		tooltip: {},
+		legend: {
+			data: ['访问量']
+		},	
+		xAxis: {
+			data : ["谷歌","百度","新浪","腾讯","淘宝"]
+		},
+		yAxis: {},
+		series:[{
+			name: '访问量',
+			type: 'bar',
+			//data: [5000.00,6000.0,7000.00,8000.0,9000.0]
+						data:[
+				{value:400, name:'搜索引擎'},
+                {value:335, name:'直接访问'},
+                {value:310, name:'邮件营销'},
+                {value:274, name:'联盟广告'},
+                {value:235, name:'视频广告'}
+			]
+		}]
+
+};
+
+myChart.setOption(option);
+</script>
+{% endblock%}
+</body>
+</html>

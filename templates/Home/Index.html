@@ -1,0 +1,64 @@
+{% extends  'Layout/Master.html'%}
+
+{% block css %}
+	<link rel="stylesheet" href='/static/bootstrap/css/bootstrap.css' />
+		<style type="text/css">
+				${demo.css}
+		</style>
+
+<script type="text/javascript" src="/static/js/jquery-2.1.1.js"></script>
+<script type="text/javascript">
+$(function () {
+     Highcharts.setOptions({
+        global: {
+            useUTC: false,
+        }
+    });
+    $.getJSON('/api/graph_data/', function (data) {
+    
+
+
+        $('#container').highcharts('StockChart', {
+
+            //chart: {
+            //    type: 'arearange'
+            //},
+
+            rangeSelector: {
+                inputEnabled: $('#container').width() > 480,
+                selected: 2
+            },
+
+            title: {
+                text: 'CPU 使用率'
+            },
+
+            tooltip: {
+                valueSuffix: '%'
+            },
+
+            series: [{
+                name: 'usage',
+                data: data
+            }]
+
+        });
+    });
+
+});
+</script>
+<script src="/static/highstock/js/highstock.js"></script>
+<script src="/static/highstock/js/highcharts-more.js"></script>
+<script src="/static/highstock/js/modules/exporting.js"></script>
+{%endblock%}
+
+
+{% block content %}
+	<h1>欢迎登录.</h1>
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto;background-color:red" >111</div>
+	
+{% endblock%}
+
+{% block javascript %}
+	<script type="text/javascript" src='/static/bootstrap/js/bootstrap.js'></script>
+{% endblock%}

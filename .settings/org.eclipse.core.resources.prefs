@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+encoding//login/Extensions/HtmlHelper.py=utf-8
+encoding//login/__init__.py=utf-8
+encoding//login/forms/AccountForm.py=utf-8
+encoding//login/migrations/0001_initial.py=utf-8
+encoding//login/views/AccountView.py=utf-8
+encoding//login/views/HomeView.py=utf-8
+encoding//m_client/core/interactive.py=UTF-8
+encoding//m_client/plugins/assets.py=utf-8
+encoding//m_client/plugins/result_deal.py=utf-8
+encoding//static/highstock/index.html=UTF-8
+encoding//web/migrations/0001_initial.py=utf-8
+encoding//web/migrations/0004_graphs.py=utf-8
+encoding//web/models.py=utf-8
+encoding//web/save_data.py=utf-8
